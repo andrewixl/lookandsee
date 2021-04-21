@@ -7,7 +7,7 @@ from django.urls import path
 
 urlpatterns = [
     url(r'^$', views.index),
-    url(r'^about$', views.contact),
-    url(r'^gethelp$', views.contact),
+    url(r'^about$', views.about),
+    url(r'^gethelp$', views.gethelp),
     url(r'^contact$', views.contact),
 ]
