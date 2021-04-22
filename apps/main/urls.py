@@ -10,4 +10,5 @@ urlpatterns = [
     url(r'^about$', views.about),
     url(r'^gethelp$', views.gethelp),
     url(r'^contact$', views.contact),
+    url(r'^sendemail/(?P<id>\d+)$', views.sendemail),
 ]

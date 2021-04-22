@@ -68,13 +68,22 @@
           <div class="col-lg-6">
             <h3>Look & See</h3>
             <p>Subscribe to our newsletter to get updates on all new features and changes made to Look & See as well as the most popular blurs date.</p>
+            {%if messages%}
+              {%for message in messages%}
+                <div class="alert alert-success">
+                  <strong>Success!</strong> {{message}}
+                </div>
+              {%endfor%}
+            {%endif%}
           </div>
         </div>
 
         <div class="row footer-newsletter justify-content-center">
           <div class="col-lg-6">
-            <form action="" method="post">
-              <input type="email" name="email" placeholder="Enter your Email"><input type="submit" value="Subscribe">
+            <form action="/sendemail/2" method="post">
+              {%csrf_token%}
+              <input type="email" name="email" placeholder="Enter your Email">
+              <input type="submit" value="Subscribe">
             </form>
           </div>
         </div>
@@ -107,15 +116,15 @@
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
-  <script src="{% static 'main/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-  <script src="{% static 'main/assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
-  <script src="{% static 'main/assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
-  <script src="{% static 'main/assets/vendor/php-email-form/validate.js' %}"></script>
-  <script src="{% static 'main/assets/vendor/purecounter/purecounter.js' %}"></script>
-  <script src="{% static 'main/assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'main/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'main/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'main/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <!-- <script src="{% static 'main/vendor/php-email-form/validate.js' %}"></script> -->
+  <script src="{% static 'main/vendor/purecounter/purecounter.js' %}"></script>
+  <script src="{% static 'main/vendor/swiper/swiper-bundle.min.js' %}"></script>
 
   <!-- Template Main JS File -->
-  <script src="{% static 'main/assets/js/main.js' %}"></script>
+  <script src="{% static 'main/js/main.js' %}"></script>
 
 </body>
 

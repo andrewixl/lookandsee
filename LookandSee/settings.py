@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
 from pathlib import Path
+from LookandSee.emailsettings import settings
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-qpz$(x&8in4fe+8ys&+!ksjtdz)zb_@$z4pyx=tds=bco&-@&w'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -114,6 +115,14 @@ USE_L10N = True
 
 USE_TZ = True
 
+
+# Email Server Settings
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = settings[0]
+EMAIL_USE_SSL = True
+EMAIL_PORT = settings[1]
+EMAIL_HOST_USER = settings[2]
+EMAIL_HOST_PASSWORD = settings[3]
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/

@@ -6,6 +6,13 @@
   <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
       <div class="container">
+        {%if messages%}
+          {%for message in messages%}
+          <div class="alert alert-success">
+            <strong>Success!</strong> {{message}}
+          </div>
+          {%endfor%}
+        {%endif%}
 
         <div class="section-title">
           <span>Contact</span>
@@ -41,7 +48,8 @@
           </div>
 
           <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <form action="/sendemail/1" method="post" role="form" class="php-email-form">
+              {%csrf_token%}
               <div class="row">
                 <div class="form-group col-md-6">
                   <label for="name">Your Name</label>
@@ -66,6 +74,7 @@
                 <div class="sent-message">Your message has been sent. Thank you!</div>
               </div>
               <div class="text-center"><button type="submit">Send Message</button></div>
+              
             </form>
           </div>
 
